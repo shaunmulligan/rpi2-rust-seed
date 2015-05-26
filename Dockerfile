@@ -12,8 +12,8 @@ RUN mkdir rust && \
 
 COPY /src /usr/src/app
 
-RUN /rust/bin/rustc /usr/src/app/main.rs
+RUN cd /rust && \
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:lib && \
+	bin/rustc /usr/src/app/main.rs --out-dir /usr/src/app
 
-WORKDIR /usr/src/app
-
-CMD ./main
+CMD /usr/src/app/main
