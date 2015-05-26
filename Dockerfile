@@ -12,7 +12,7 @@ RUN mkdir rust && \
 
 COPY /src /usr/src/app
 
-RUN /rust/rustc /usr/src/app/main.rs
+RUN /rust/bin/rustc /usr/src/app/main.rs
 
 WORKDIR /usr/src/app
 
